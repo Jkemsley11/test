@@ -90,38 +90,35 @@
 <!-- Main Content -->
 <main class="content">
   <h1 class="page-title">Equipment</h1>
+<div class="image-grid">
+  <div class="grid-item" 
+    data-name="Commercial Oven"
+    data-desc="Heavy duty commercial oven suitable for high volume kitchens."
+    data-price="P 4,500"
+    onclick="openLightbox(this)">
+    <img src="images/image5.jpeg" alt="Commercial Oven">
+    <p class="image-title">Commercial Oven</p>
+  </div>
 
-  <div class="image-grid">
+   <div class="grid-item" 
+    data-name="Commercial Oven"
+    data-desc="Heavy duty commercial oven suitable for high volume kitchens."
+    data-price="P 4,500"
+    onclick="openLightbox(this)">
+    <img src="images/image3.jpeg" alt="Commercial Oven">
+    <p class="image-title">Commercial Oven</p>
+  </div>
 
-    <div class="grid-item" onclick="openLightbox(this)">
-      <img src="images/image5.jpeg" alt="Product Name">
-      <p class="image-title">Product Name</p>
-    </div>
+  <div class="grid-item" 
+    data-name="Commercial Oven"
+    data-desc="Heavy duty commercial oven suitable for high volume kitchens."
+    data-price="P 4,500"
+    onclick="openLightbox(this)">
+    <img src="images/image6.jpeg" alt="Commercial Oven">
+    <p class="image-title">Commercial Oven</p>
+  </div>
 
-    <div class="grid-item" onclick="openLightbox(this)">
-      <img src="images/image6.jpeg" alt="Product Name">
-      <p class="image-title">Product Name</p>
-    </div>
-
-     <div class="grid-item" onclick="openLightbox(this)">
-      <img src="images/image4.jpeg" alt="Product Name">
-      <p class="image-title">Product Name</p>
-    </div>
-
-    <div class="grid-item" onclick="openLightbox(this)">
-      <img src="images/image5.jpeg" alt="Product Name">
-      <p class="image-title">Product Name</p>
-    </div>
-
-    <div class="grid-item" onclick="openLightbox(this)">
-      <img src="images/image6.jpeg" alt="Product Name">
-      <p class="image-title">Product Name</p>
-    </div>
-
-     <div class="grid-item" onclick="openLightbox(this)">
-      <img src="images/image4.jpeg" alt="Product Name">
-      <p class="image-title">Product Name</p>
-    </div>
+  
     <!-- Repeat for all images -->
 
   </div>
@@ -129,33 +126,32 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </main>
 
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
-  <span class="lightbox-close">&times;</span>
-  <img id="lightbox-img" src="" alt="">
-  <p id="lightbox-title"></p>
-</div>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+
+    <div class="lightbox-flip" id="lightboxFlip" onclick="flipLightbox(event)">
+      <div class="lightbox-inner">
+
+        <!-- Front: image -->
+        <div class="lightbox-front">
+          <img id="lightbox-img" src="" alt="">
+          <p class="lightbox-hint">Click image to see details</p>
+        </div>
+
+        <!-- Back: product details -->
+        <div class="lightbox-back">
+          <h3 id="lightbox-name"></h3>
+          <p id="lightbox-desc"></p>
+          <p class="lightbox-price" id="lightbox-price"></p>
+          <p class="lightbox-hint">Click to flip back</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </main>
-<script>
-  function openLightbox(item) {
-    const img = item.querySelector('img');
-    const title = item.querySelector('.image-title').textContent;
-
-    document.getElementById('lightbox-img').src = img.src;
-    document.getElementById('lightbox-title').textContent = title;
-    document.getElementById('lightbox').classList.add('active');
-  }
-
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('active');
-  }
-
-  // Close with Escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeLightbox();
-  });
-</script>
-
+  <script src="script.js"></script>
     <footer>
         <p>Intelli-Sales. All rights reserved.</p>
     </footer>

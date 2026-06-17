@@ -289,7 +289,137 @@ main {
     max-height: none; /* let it scroll naturally on mobile */
   }
 }
+.product-search-wrap {
+  margin-right: 16px;
+}
 
+#productSearch {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 180px;
+  outline: none;
+}
+
+#productSearch:focus {
+  box-shadow: 0 0 0 2px #1a1815;
+}
+
+/* Mobile: search bar takes more natural width */
+@media (max-width: 768px) {
+  #productSearch {
+    width: 140px;
+  }
+}
+/* Lightbox overlay */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.85);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 36px;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Flip container */
+.lightbox-flip {
+  width: 80%;
+  max-width: 700px;
+  height: 75vh;
+  perspective: 1200px;
+  cursor: pointer;
+}
+
+.lightbox-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.lightbox-flip.flipped .lightbox-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front */
+.lightbox-front, .lightbox-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.lightbox-front {
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-front img {
+  max-width: 100%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* Back */
+.lightbox-back {
+  background: #1a1815;
+  color: #f0ece4;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  gap: 16px;
+  text-align: center;
+}
+
+.lightbox-back h3 {
+  font-size: 24px;
+  color: #2ABFBF;
+}
+
+.lightbox-back p {
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.7;
+}
+
+.lightbox-price {
+  font-size: 28px !important;
+  font-weight: 700;
+  color: #ffffff !important;
+}
+
+.lightbox-hint {
+  font-size: 12px !important;
+  color: #666 !important;
+  margin-top: 10px;
+}
 /* Quick Contact Strip */
 .contact-strip {
   background-color: #1a1815;
